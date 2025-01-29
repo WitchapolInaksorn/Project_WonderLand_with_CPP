@@ -1,0 +1,21 @@
+                            **TICKET DETAIL**
+            
+            YOU CAN PLAY 8 RIDES AND YOU CAN TOUR 2 TOWNS 
+            
+        ==========================NORMAL===========================
+        |  [1] Carousel       [2] Ferris Wheel      [3] Bumper Car|     
+        |  [4] Bumper Boat    [5] Super Splash      [6] Water Fun |
+        |  [7] Grandcanyon    [8] TaGaDa                          |
+        |  [9] Snow Town      [10] Giant Town                     |                      
+        ===========================================================
+            
+            
+            YOU CAN PLAY 12 RIDES AND YOU CAN TOUR 3 TOWNS 
+            
+        ==========================PREMIUM============================
+        |  [1] Carousel       [2] Ferris Wheel      [3] Bumper Car  |     
+        |  [4] Bumper Boat    [5] Super Splash      [6] Water Fun   |
+        |  [7] Grandcanyon    [8] TaGaDa            [9] Tornado     |
+        |  [10] Hurricane     [11] Sky Coaster      [12] Viking     |
+        |  [13] Haunted       [14] Snow Town        [15] Giant Town |                    
+        =============================================================
