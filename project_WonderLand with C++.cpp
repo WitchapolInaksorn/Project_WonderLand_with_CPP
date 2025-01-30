@@ -232,115 +232,82 @@ class Souvenir : public Food
         int select,choose,total,money,change,work;
         int choose1,choose2,choose3,choose4,choose5;
         int result1,result2,result3,result4,result5;
+        
         void sellsouvenir()
+{
+    cout << "\t\t----SOUVENIR OF WONDER LAND----" << endl;
+    cout << "\t\t[1] Shirt        : 450 baht" << endl;
+    cout << "\t\t[2] Doll         : 400 baht" << endl;
+    cout << "\t\t[3] Hat          : 350 baht" << endl;
+    cout << "\t\t[4] Keychain     : 250 baht" << endl;
+    cout << "\t\t[5] Shoulder bag : 500 baht" << endl;
+    cout << "\t\t[0] CHARGE MONEY" << endl;
+    
+    select = 1;
+    total = 0;
+    choose1 = choose2 = choose3 = choose4 = choose5 = 0;
+    result1 = result2 = result3 = result4 = result5 = 0;
+
+    while (select != 0)
+    {
+        cout << "\t\tENTER YOUR SOUVENIR : ";
+        cin >> select;
+        
+        if (select < 0 || select > 5)
         {
-        cout << "\t\t----SOUVENIR OF WONDER LAND----" << endl;
-        cout << "\t\t[1] Shirt        : 450 baht" << endl;
-        cout << "\t\t[2] Doll         : 400 baht" << endl;
-        cout << "\t\t[3] Hat          : 350 baht" << endl;
-        cout << "\t\t[4] Keychain     : 250 baht" << endl;
-        cout << "\t\t[5] Shoulder bag : 500 baht" << endl;
-        cout << "\t\t[0] CHARGE MONEY" << endl;
-        select = 1;
-        while (select !=0)
-        {
-            cout << "\t\tENTER YOUR SOUVENIR : ";
-            cin >> select;
-            switch(select)
-            {
-            case 1 : 
-                cout << "\t\tHOW MANY DO YOU WANT : ";
-                cin >> choose;
-                result1 = choose*450;
-                choose1 = choose;
-                cout << endl;
-                break;
-            case 2 : 
-                cout << "\t\tHOW MANY DO YOU WANT : ";
-                cin >> choose;
-                result2 = choose*400;
-                choose2 = choose;
-                cout << endl;
-                break;
-            case 3 :
-                cout << "\t\tHOW MANY DO YOU WANT : ";
-                cin >> choose;
-                result3 = choose*350;
-                choose3 = choose;
-                cout << endl;
-                break;
-            case 4 :
-                cout << "\t\tHOW MANY DO YOU WANT : ";
-                cin >> choose;
-                result4 = choose*250;
-                choose4 = choose;
-                cout << endl;
-                break;
-            case 5 : 
-                cout << "\t\tHOW MANY DO YOU WANT : ";
-                cin >> choose;
-                result5 = choose*500;
-                choose5 = choose;
-                cout << endl;
-                break;
-            default : 
-                cout << "\t\tDON'T HAVE YOUR SOUVENIR" << endl;
-            case 0 : 
-                break;
-            }
+            cout << "\t\tDON'T HAVE YOUR SOUVENIR" << endl;
+            continue;
         }
-        cout << endl;
-        total = result1 + result2 + result3 + result4 + result5;
-        cout << "\t\t-----------Bill-----------" <<endl;
-        if(choose1 > 0)
+        
+        if (select == 0)
+            break;
+        
+        cout << "\t\tHOW MANY DO YOU WANT : ";
+        cin >> choose;
+        
+        switch (select)
         {
-            cout << "\t\t" << choose1 << " Shirt        " << result1 << " baht" << endl;
+            case 1: choose1 += choose; result1 = choose1 * 450; break;
+            case 2: choose2 += choose; result2 = choose2 * 400; break;
+            case 3: choose3 += choose; result3 = choose3 * 350; break;
+            case 4: choose4 += choose; result4 = choose4 * 250; break;
+            case 5: choose5 += choose; result5 = choose5 * 500; break;
         }
-        if(choose2 > 0)
+    }
+
+    total = result1 + result2 + result3 + result4 + result5;
+
+    cout << "\t\t-----------Bill-----------" << endl;
+    if (choose1 > 0) cout << "\t\t" << choose1 << " Shirt        " << result1 << " baht" << endl;
+    if (choose2 > 0) cout << "\t\t" << choose2 << " Doll         " << result2 << " baht" << endl;
+    if (choose3 > 0) cout << "\t\t" << choose3 << " Hat          " << result3 << " baht" << endl;
+    if (choose4 > 0) cout << "\t\t" << choose4 << " Keychain     " << result4 << " baht" << endl;
+    if (choose5 > 0) cout << "\t\t" << choose5 << " Shoulder bag " << result5 << " baht" << endl;
+    cout << "\t\tTotal = " << total << " baht" << endl;
+
+    while (true)
+    {
+        cout << "\t\tEnter your money : ";
+        cin >> money;
+        
+        if (money < total)
         {
-            cout << "\t\t" << choose2 << " Doll         " << result2 << " baht" << endl;
+            cout << "\t\tYour money is not enough! You need " << total - money << " baht more." << endl;
         }
-        if(choose3 > 0)
+        else
         {
-            cout << "\t\t" << choose3 << " Hat          " << result3 << " baht" << endl;
-        }
-        if(choose4 > 0)
-        {
-            cout << "\t\t" << choose4 << " Keychain     " << result4 << " baht" << endl;
-        }
-        if(choose5 > 0)
-        {
-            cout << "\t\t" << choose5 << "Shoulder bag  " << result5 << " baht" << endl;
-        }
-        else 
-        {
-            NULL;   
-        }
-        cout << "\t\tTotal = " <<total << endl;
-        work = 1;
-        while(work != 0)
-        {
-            cout << "\t\tEnter your money : ";
-            cin >> money;
             change = money - total;
-            if(money<total)
+            cout << "\t\tPayment accepted!" << endl;
+            if (change > 0)
             {
-                cout << "\t\tYour money not enough!!";
+                cout << "\t\tYour change is " << change << " baht." << endl;
             }
-            else if(money>total)
-            {
-                cout << "\t\tYour change = " << change << endl;
-                break;
-            }
-            else 
-            {
-                break;
-            }
-            cout << endl;
+            cout << "\t\t-------SUCCESSFUL PAYMENT-------" << endl;
+            break;
         }
-        cout << endl;
-        cout << "\t\t-------SUCCESSFUL PAYMENT-------" << endl;
-        }
+    }
+}
+
 };
 
 
